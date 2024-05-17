@@ -26,4 +26,5 @@ namespace Clothing_store
             FrameMain.Navigate(new Page1());
         }
     }
+    //Тестовая строка
 }
