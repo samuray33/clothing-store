@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,42 @@ namespace Clothing_store
         public Page2()
         {
             InitializeComponent();
+            fillGender();
         }
+
+        void fillGender() 
+        {
+
+        }
+
+        private void Vhod_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.mainframe.Navigate(new Page1());
+        }
+
+        private void Regis_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                account personObj = new account()
+                {
+                    name = Name.Text,
+                    surname = Surname.Text,
+                    patronymic = Patronymic.Text,
+                    email = Email.Text,
+                    password = Password.Password,
+                    idGender = Gender.SelectedIndex + 1,
+                    idRole = 2,
+                    
+                };
+
+                AppConnect.model0db.account.Add(personObj);
+                AppConnect.model0db.SaveChanges();
+            }
+            catch (Exception ex) { MessageBox.Show(Gender.SelectedIndex.ToString()); }
+        }
+
+
+
     }
 }

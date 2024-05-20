@@ -27,13 +27,22 @@ namespace Clothing_store
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            AppFrame.mainframe.Navigate(new Page2());
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Window1 window = new Window1();
-            window.Show();
+            var userObj = AppConnect.model0db.account.FirstOrDefault(x => x.email == Email.Text && x.password == Password.Password);
+            if (userObj != null)
+            {
+                Window1 window = new Window1();
+                window.Show();
+                Application.Current.MainWindow.Close();
+            }
+            else 
+            {
+                MessageBox.Show("нету");
+            }
         }
     }
 }

@@ -67,6 +67,8 @@
     <Compile Include="account.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppConnect.cs" />
+    <Compile Include="AppFrame.cs" />
     <Compile Include="card.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

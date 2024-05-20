@@ -23,7 +23,9 @@ namespace Clothing_store
         public MainWindow()
         {
             InitializeComponent();
-            FrameMain.Navigate(new Page1());
+            AppFrame.mainframe = FrameMain;
+            AppFrame.mainframe.Navigate(new Page1());
+            AppConnect.model0db = new Entities1();
         }
     }
     //Тестовая строка

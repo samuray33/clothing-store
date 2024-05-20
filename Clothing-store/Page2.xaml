@@ -16,19 +16,22 @@
         <TextBlock HorizontalAlignment="Center" FontSize="30px" Margin="0,43,0,0" TextWrapping="Wrap" Text="Clothing store" VerticalAlignment="Top" Foreground="#FF115BBD"/>
         <TextBlock HorizontalAlignment="Center" FontSize="20px" TextWrapping="Wrap" Text="Регистрация" VerticalAlignment="Center" Foreground="Black"/>
         <TextBlock HorizontalAlignment="Left" FontSize="20px" Margin="58,123,0,0" TextWrapping="Wrap" Text="Введите email" VerticalAlignment="Top" Foreground="Black"/>
-        <TextBox HorizontalAlignment="Left" Margin="58,155,0,0" FontSize="23px" TextWrapping="Wrap" VerticalAlignment="Top" Width="291" Height="35"/>
-        <TextBox HorizontalAlignment="Left" Margin="58,26,0,0" FontSize="23px" TextWrapping="Wrap" VerticalAlignment="Top" Width="291" Height="35" Grid.Row="1"/>
+        <TextBox x:Name="Email" HorizontalAlignment="Left" Margin="58,155,0,0" FontSize="23px" TextWrapping="Wrap" VerticalAlignment="Top" Width="291" Height="35"/>
+        <PasswordBox Name="Password" HorizontalAlignment="Left" Margin="58,26,0,0" FontSize="23px" VerticalAlignment="Top" Width="291" Height="35" Grid.Row="1"/>
         <TextBlock HorizontalAlignment="Left" FontSize="20px" Margin="58,203,0,0" TextWrapping="Wrap" Text="Введите пароль" VerticalAlignment="Top" Foreground="Black" Grid.RowSpan="2"/>
-        <Button Content="Вход" HorizontalAlignment="Left" Background="LightGreen" Margin="241,174,0,0" VerticalAlignment="Top" Height="25" Width="127" Grid.Row="1"/>
-        <Button Content="Регистрация" HorizontalAlignment="Left" Background="LightYellow" Margin="400,174,0,0" VerticalAlignment="Top" Height="25" Width="145" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Margin="445,155,0,0" FontSize="23px" TextWrapping="Wrap" VerticalAlignment="Top" Width="291" Height="35"/>
-        <TextBox HorizontalAlignment="Left" Margin="445,26,0,0" FontSize="23px" TextWrapping="Wrap" VerticalAlignment="Top" Width="291" Height="35" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Margin="58,98,0,0" FontSize="23px" TextWrapping="Wrap" VerticalAlignment="Top" Width="291" Height="35" Grid.Row="1"/>
+        <Button x:Name="Vhod" Content="Вход" HorizontalAlignment="Left" Background="LightGreen" Margin="241,174,0,0" VerticalAlignment="Top" Height="25" Width="127" Grid.Row="1" Click="Vhod_Click"/>
+        <Button x:Name="Regis" Content="Регистрация" HorizontalAlignment="Left" Background="LightYellow" Margin="400,174,0,0" VerticalAlignment="Top" Height="25" Width="145" Grid.Row="1" Click="Regis_Click"/>
+        <TextBox x:Name="Name" HorizontalAlignment="Left" Margin="445,155,0,0" FontSize="23px" TextWrapping="Wrap" VerticalAlignment="Top" Width="291" Height="35"/>
+        <TextBox x:Name="Surname" HorizontalAlignment="Left" Margin="445,26,0,0" FontSize="23px" TextWrapping="Wrap" VerticalAlignment="Top" Width="291" Height="35" Grid.Row="1"/>
+
+        <ComboBox x:Name="Gender" HorizontalAlignment="Left" Margin="58,100,0,0" FontSize="23px" Grid.Row="1" VerticalAlignment="Top" Width="291" Height="33">
+            <ComboBoxItem Content="муж" />
+            <ComboBoxItem Content="жен" />
+        </ComboBox>
         <TextBlock HorizontalAlignment="Left" FontSize="20px" Margin="58,66,0,0" TextWrapping="Wrap" Text="Пол" VerticalAlignment="Top" Foreground="Black" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Margin="445,98,0,0" FontSize="23px" TextWrapping="Wrap" VerticalAlignment="Top" Width="291" Height="35" Grid.Row="1"/>
+        <TextBox x:Name="Patronymic" HorizontalAlignment="Left" Margin="445,98,0,0" FontSize="23px" TextWrapping="Wrap" VerticalAlignment="Top" Width="291" Height="35" Grid.Row="1"/>
         <TextBlock HorizontalAlignment="Left" FontSize="20px" Margin="445,128,0,0" TextWrapping="Wrap" Text="Введите имя" VerticalAlignment="Top" Foreground="Black"/>
         <TextBlock HorizontalAlignment="Left" FontSize="20px" Margin="445,201,0,0" TextWrapping="Wrap" Text="Введите фамилию" VerticalAlignment="Top" Foreground="Black" Grid.RowSpan="2"/>
         <TextBlock HorizontalAlignment="Left" FontSize="20px" Margin="445,71,0,0" TextWrapping="Wrap" Text="Введите отчество*" VerticalAlignment="Top" Foreground="Black" Grid.Row="1"/>
-
     </Grid>
 </Page>
