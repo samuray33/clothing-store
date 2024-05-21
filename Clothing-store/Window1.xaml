@@ -15,7 +15,7 @@
             <ComboBoxItem Content="детская" />
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" FontSize="20px" Margin="564,31,0,0" TextWrapping="Wrap" Text="Сортировка" VerticalAlignment="Top" Height="27" Width="117"/>
-        <Button Content="Кор" HorizontalAlignment="Left" Margin="735,23,0,0" VerticalAlignment="Top" Height="41" Width="43"/>
+        <Button x:Name="card" Content="Кор" HorizontalAlignment="Left" Margin="735,23,0,0" VerticalAlignment="Top" Height="41" Width="43" Click="card_Click_1"/>
 
         <Image Grid.Column="0" Source="{Binding CarrectImage}" Margin="0,86,0,0"/>
         <TextBlock Text="{Binding decription}" Margin="0,82,0,0">

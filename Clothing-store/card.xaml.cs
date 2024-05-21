@@ -15,26 +15,19 @@ using System.Windows.Shapes;
 namespace Clothing_store
 {
     /// <summary>
-    /// Логика взаимодействия для Window1.xaml
+    /// Логика взаимодействия для card.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class card : Window
     {
-        public Window1()
+        public card()
         {
             InitializeComponent();
-            items.entity = new Entities1();
-            ListView1.ItemsSource = items.entity.main.ToList();
         }
 
-        private void card_Click(object sender, RoutedEventArgs e)
+        private void back_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void card_Click_1(object sender, RoutedEventArgs e)
-        {
-            card card = new card();
-            card.Show();
+            Window1 window = new Window1();
+            window.Show();
             this.Close();
         }
     }

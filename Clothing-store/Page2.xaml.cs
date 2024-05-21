@@ -56,6 +56,8 @@ namespace Clothing_store
 
                 AppConnect.model0db.account.Add(personObj);
                 AppConnect.model0db.SaveChanges();
+                MessageBox.Show("Пользователь добавлен");
+                AppFrame.mainframe.Navigate(new Page1());
             }
             catch (Exception ex) { MessageBox.Show(Gender.SelectedIndex.ToString()); }
         }

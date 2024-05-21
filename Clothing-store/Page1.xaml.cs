@@ -41,7 +41,7 @@ namespace Clothing_store
             }
             else 
             {
-                MessageBox.Show("нету");
+                MessageBox.Show("Пользователь не найден");
             }
         }
     }
