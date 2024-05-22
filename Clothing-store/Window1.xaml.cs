@@ -23,7 +23,7 @@ namespace Clothing_store
         {
             InitializeComponent();
             items.entity = new Entities1();
-            ListView1.ItemsSource = items.entity.main.ToList();
+            ListView1.ItemsSource = FindMain();
         }
 
         private void card_Click(object sender, RoutedEventArgs e)
@@ -36,6 +36,28 @@ namespace Clothing_store
             card card = new card();
             card.Show();
             this.Close();
+        }
+
+        
+        // 1
+        main[] FindMain() {
+            List<main> mains = AppConnect.model0db.main.ToList();
+
+            if (String.IsNullOrEmpty(findItems.Text) || String.IsNullOrWhiteSpace(findItems.Text))
+            {
+
+            }
+            else {
+                mains = mains.Where(x => x.nameItem.ToLower().Contains(findItems.Text.ToLower())).ToList();
+            }
+
+            var mainAll = mains;
+            return mains.ToArray() ;
+        }
+
+        private void findItems_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ListView1.ItemsSource = FindMain();
         }
     }
 }
