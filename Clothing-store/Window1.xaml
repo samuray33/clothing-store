@@ -57,8 +57,8 @@
                                 <Run Text="{Binding material.material1}"/>
                             </TextBlock>
                         </StackPanel>
-                        <Button Grid.Column="2" FontSize="20px" Content="Купить" HorizontalAlignment="Left" Margin="85,31,0,0" VerticalAlignment="Top" Height="39" Width="105"/>
-                        <TextBox Grid.Column="2" Margin="85,75,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20"/>
+                        <Button x:Name="buy" Grid.Column="2" FontSize="20px" Content="Купить" HorizontalAlignment="Left" Margin="85,31,0,0" VerticalAlignment="Top" Height="39" Width="105" Click="buy_Click"/>
+                        <TextBox Grid.Column="2" HorizontalAlignment="Left" FontSize="20" Margin="85,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

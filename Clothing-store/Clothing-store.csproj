@@ -72,8 +72,8 @@
     <Compile Include="card.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="card.xaml.cs">
-      <DependentUpon>card.xaml</DependentUpon>
+    <Compile Include="cart.xaml.cs">
+      <DependentUpon>cart.xaml</DependentUpon>
     </Compile>
     <Compile Include="categor.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -115,7 +115,7 @@
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
-    <Page Include="card.xaml">
+    <Page Include="cart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

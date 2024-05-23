@@ -33,12 +33,12 @@ namespace Clothing_store
 
         private void card_Click_1(object sender, RoutedEventArgs e)
         {
-            card card = new card();
-            card.Show();
+            cart cart = new cart();
+            cart.Show();
             this.Close();
         }
 
-        
+
         // 1
         main[] FindMain() {
             List<main> mains = AppConnect.model0db.main.ToList();
@@ -52,12 +52,17 @@ namespace Clothing_store
             }
 
             var mainAll = mains;
-            return mains.ToArray() ;
+            return mains.ToArray();
         }
 
         private void findItems_TextChanged(object sender, TextChangedEventArgs e)
         {
             ListView1.ItemsSource = FindMain();
+        }
+
+        private void buy_Click(object sender, RoutedEventArgs e)
+        {
+            //var idMain = AppConnect.model0db.card.Where(x => x.idMain).Select;
         }
     }
 }

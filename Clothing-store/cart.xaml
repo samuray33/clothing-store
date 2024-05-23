@@ -1,0 +1,64 @@
+﻿<Window x:Class="Clothing_store.cart"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Clothing_store"
+        mc:Ignorable="d"
+        Title="cart" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="back" Content="Назад" HorizontalAlignment="Left" Margin="39,9,0,0" FontSize="20px" VerticalAlignment="Top" Width="83" Height="31" Click="back_Click"/>
+        <TextBlock x:Name="Prise" HorizontalAlignment="Left" Margin="39,366,0,0" TextWrapping="Wrap" Text="Цена: " FontSize="20px" VerticalAlignment="Top"/>
+        <TextBlock x:Name="FIO" HorizontalAlignment="Left" Margin="541,11,0,0" TextWrapping="Wrap"  Text="Никита Никита Никита" FontSize="20" VerticalAlignment="Top"/>
+
+        <ListView x:Name="ListCart" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,45,0,55">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"></ColumnDefinition>
+                            <ColumnDefinition Width="300"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Width="140" Height="140" Source="{Binding main.CurrentPhoto}"/>
+                        <StackPanel Grid.Column="1" Width="180" Orientation="Vertical" HorizontalAlignment="Left">
+                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
+                                <Run Text="Название: "/>
+                                <Run Text="{Binding main.nameItem}"/>
+                            </TextBlock>
+                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
+                                <Run Text="Цена: "/>
+                                <Run Text="{Binding main.price}"/>
+                            </TextBlock>
+                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
+                                <Run Text="О товаре: "/>
+                                <Run Text="{Binding main.infoItem}"/>
+                            </TextBlock>
+                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
+                                <Run Text="Категория: "/>
+                                <Run Text="{Binding main.categor.categor1}"/>
+                            </TextBlock>
+                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
+                                <Run Text="Цвет: "/>
+                                <Run Text="{Binding main.color1.color}"/>
+                            </TextBlock>
+                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
+                                <Run Text="Материал: "/>
+                                <Run Text="{Binding main.material.material1}"/>
+                            </TextBlock>
+                        </StackPanel>
+                        <ToolBarPanel Grid.Column="2"/>
+                        <Button x:Name="deleteItem" Grid.Column="2" Content="Удалить" FontSize="20px" HorizontalAlignment="Left" Margin="62,94,0,0" VerticalAlignment="Top" Width="128" Height="34"/>
+                        <TextBlock Grid.Column="2" HorizontalAlignment="Center" FontSize="18" Margin="0,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" Height="30">
+                            <Run Text="Колличество: "/>
+                            <Run Text="{Binding caunt}"/>
+                        </TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button x:Name="by" Content="Оформить" HorizontalAlignment="Left" Margin="642,368,0,0" FontSize="20px" VerticalAlignment="Top" Height="32" Width="107"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="-89,323,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

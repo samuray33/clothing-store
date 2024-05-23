@@ -15,20 +15,22 @@ using System.Windows.Shapes;
 namespace Clothing_store
 {
     /// <summary>
-    /// Логика взаимодействия для card.xaml
+    /// Логика взаимодействия для cart.xaml
     /// </summary>
-    public partial class card : Window
+    public partial class cart : Window
     {
-        public card()
+        public cart()
         {
             InitializeComponent();
+            items.entity = new Entities1();
+            ListCart.ItemsSource = AppConnect.model0db.card.ToList();
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            Window1 window = new Window1();
-            window.Show();
-            this.Close();
+            Window1 Window1 = new Window1();
+            Window1.Show();
+            Close();
         }
     }
 }
