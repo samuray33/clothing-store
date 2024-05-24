@@ -51,7 +51,6 @@ namespace Clothing_store
                     password = Password.Password,
                     idGender = Gender.SelectedIndex + 1,
                     idRole = 2,
-                    
                 };
 
                 AppConnect.model0db.account.Add(personObj);

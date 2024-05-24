@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Clothing_store
 {
+    // подключение к бд
     public static class AppConnect
     {
         public static Entities1 model0db;

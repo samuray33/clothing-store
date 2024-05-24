@@ -27,6 +27,8 @@ namespace Clothing_store
         public Nullable<int> idCategor { get; set; }
         public Nullable<int> idColor { get; set; }
         public Nullable<int> idMaterial { get; set; }
+
+        // если в бд нет фото то ставится заглушка
         public string photoItem { get; set; }
 
         public string Image { get; set; }

@@ -59,6 +59,5 @@
         </ListView>
 
         <Button x:Name="by" Content="Оформить" HorizontalAlignment="Left" Margin="642,368,0,0" FontSize="20px" VerticalAlignment="Top" Height="32" Width="107"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="-89,323,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

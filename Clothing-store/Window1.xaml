@@ -9,7 +9,8 @@
     <Grid>
         <TextBox x:Name="findItems" HorizontalAlignment="Center" FontSize="20px" Margin="0,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="29" TextChanged="findItems_TextChanged"/>
         <TextBlock x:Name="name" HorizontalAlignment="Left" FontSize="20px" Margin="43,31,0,0" Background="#FFDEE3EC" TextWrapping="Wrap" Text="Clothing store" VerticalAlignment="Top" Height="27" Width="155"/>
-        <ComboBox x:Name="sortItems" HorizontalAlignment="Left" Margin="686,34,0,0" VerticalAlignment="Top" Width="20">
+        <ComboBox x:Name="sortItems" HorizontalAlignment="Left" Margin="686,34,0,0" VerticalAlignment="Top" Width="20" SelectionChanged="sortItems_SelectionChanged">
+            <ComboBoxItem Content="все" />
             <ComboBoxItem Content="мужская" />
             <ComboBoxItem Content="женская" />
             <ComboBoxItem Content="детская" />
@@ -57,8 +58,8 @@
                                 <Run Text="{Binding material.material1}"/>
                             </TextBlock>
                         </StackPanel>
-                        <Button x:Name="buy" Grid.Column="2" FontSize="20px" Content="Купить" HorizontalAlignment="Left" Margin="85,31,0,0" VerticalAlignment="Top" Height="39" Width="105" Click="buy_Click"/>
-                        <TextBox Grid.Column="2" HorizontalAlignment="Left" FontSize="20" Margin="85,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
+                        <Button x:Name="buy" Grid.Column="2" FontSize="20px" Content="Купить" HorizontalAlignment="Left" Margin="85,31,0,0" Tag="{Binding id}" VerticalAlignment="Top" Height="39" Width="105" Click="buy_Click"/>
+                        <TextBox x:Name="caunt" Grid.Column="2" HorizontalAlignment="Left" FontSize="20" Margin="85,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Text="1"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -35,6 +35,7 @@ namespace Clothing_store
             var userObj = AppConnect.model0db.account.FirstOrDefault(x => x.email == Email.Text && x.password == Password.Password);
             if (userObj != null)
             {
+                App.Current.Properties["userEmail"] = userObj.id;
                 Window1 window = new Window1();
                 window.Show();
                 Application.Current.MainWindow.Close();

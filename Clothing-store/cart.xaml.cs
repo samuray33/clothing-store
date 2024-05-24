@@ -19,6 +19,7 @@ namespace Clothing_store
     /// </summary>
     public partial class cart : Window
     {
+        // подключение к бд для вывода данных из таблицы card
         public cart()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace Clothing_store
             ListCart.ItemsSource = AppConnect.model0db.card.ToList();
         }
 
+        // обратно на главную страницу
         private void back_Click(object sender, RoutedEventArgs e)
         {
             Window1 Window1 = new Window1();
