@@ -5,17 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clothing_store"
         mc:Ignorable="d"
-        Title="Clothing store" Height="450" Width="800">
+        Title="Clothing store" Height="450" Width="800" MaxWidth="800" MaxHeight="450" MinWidth="800" MinHeight="450">
     <Grid>
         <TextBox x:Name="findItems" HorizontalAlignment="Center" FontSize="20px" Margin="0,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="29" TextChanged="findItems_TextChanged"/>
         <TextBlock x:Name="name" HorizontalAlignment="Left" FontSize="20px" Margin="43,31,0,0" Background="#FFDEE3EC" TextWrapping="Wrap" Text="Clothing store" VerticalAlignment="Top" Height="27" Width="155"/>
-        <ComboBox x:Name="sortItems" HorizontalAlignment="Left" Margin="686,34,0,0" VerticalAlignment="Top" Width="20" SelectionChanged="sortItems_SelectionChanged">
-            <ComboBoxItem Content="все" />
+        <ComboBox x:Name="sortItems" HorizontalAlignment="Left" Margin="567,33,0,0" VerticalAlignment="Top" Width="142" SelectionChanged="sortItems_SelectionChanged">
+            <ComboBoxItem Content="Фильтрация" />
             <ComboBoxItem Content="мужская" />
             <ComboBoxItem Content="женская" />
             <ComboBoxItem Content="детская" />
         </ComboBox>
-        <TextBlock x:Name="filtName" HorizontalAlignment="Left" FontSize="20px" Margin="564,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="117"><Run Language="ru-ru" Text="Фильтрация"/></TextBlock>
         <Button x:Name="card" Content="Кор" HorizontalAlignment="Left" Margin="735,23,0,0" VerticalAlignment="Top" Height="41" Width="43" Click="card_Click_1"/>
 
         <Image Grid.Column="0" Source="{Binding CarrectImage}" Margin="0,86,0,0"/>

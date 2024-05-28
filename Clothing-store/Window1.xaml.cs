@@ -25,6 +25,7 @@ namespace Clothing_store
             InitializeComponent();
             items.entity = new Entities1();
             ListView1.ItemsSource = FindMain();
+            sortItems.SelectedIndex = 0;
         }
 
         private void card_Click(object sender, RoutedEventArgs e)
@@ -41,6 +42,7 @@ namespace Clothing_store
         }
 
 
+
         // функция для поиска
         main[] FindMain() {
             List<main> mains = AppConnect.model0db.main.ToList();
@@ -51,6 +53,10 @@ namespace Clothing_store
             }
             else {
                 mains = mains.Where(x => x.nameItem.ToLower().Contains(findItems.Text.ToLower())).ToList();
+            }
+
+            if (sortItems.SelectedIndex != 0) {
+                mains = mains.Where(x => x.idCategor.ToString() == sortItems.SelectedIndex.ToString()).ToList();
             }
 
             var mainAll = mains;
@@ -74,12 +80,12 @@ namespace Clothing_store
             {
                 card card = new card()
                 {
-                    idAccount = userId,
                     idMain = (int?)id,
+                    idAccount = userId,
                     caunt = 1,
-
                 };
                 AppConnect.model0db.card.Add(card);
+                AppConnect.model0db.SaveChanges();
                 MessageBox.Show("товар отправлен в корзину + " + userId + " + " + (int?)id);
             }
             catch (Exception ex) { MessageBox.Show("товар не отправлен в корзину"); }
@@ -89,25 +95,7 @@ namespace Clothing_store
         //фильтрация
         private void sortItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBoxItem coAll = (ComboBoxItem)sortItems.SelectedItem;
-            string value = coAll.Content.ToString();
-            int id = 0;
-            switch (value)
-            {
-                case "все":
-                    ListView1.ItemsSource = AppConnect.model0db.main.ToList();
-                    return;
-                case "мужская":
-                    id = 1;
-                    break;
-                case "женская":
-                    id = 2;
-                    break;
-                case "детская":
-                    id = 3;
-                    break;
-            }
-            ListView1.ItemsSource = AppConnect.model0db.main.Where(x => x.idCategor == id).ToList();
+            ListView1.ItemsSource = FindMain();
         }
 
     }
