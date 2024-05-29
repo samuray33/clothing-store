@@ -69,12 +69,15 @@ namespace Clothing_store
             ListView1.ItemsSource = FindMain();
         }
 
-        //отправка товара в корзуну (не получается)
+        //отправка товара в корзуну 
         private void buy_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
             var id = button.Tag;
             int userId = (int)App.Current.Properties["userEmail"];
+
+            ////////////////////////////////////////////////////////////////////////Попытка получить даныые caunt - это колличество товара при выборе
+            ////////////////////////////////////////////////////////////////////////string caunt = caunt.Text;
 
             try
             {
@@ -86,7 +89,7 @@ namespace Clothing_store
                 };
                 AppConnect.model0db.card.Add(card);
                 AppConnect.model0db.SaveChanges();
-                MessageBox.Show("товар отправлен в корзину + " + userId + " + " + (int?)id);
+                MessageBox.Show("товар отправлен в корзину");
             }
             catch (Exception ex) { MessageBox.Show("товар не отправлен в корзину"); }
 

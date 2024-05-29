@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,24 @@ namespace Clothing_store
             Window1 Window1 = new Window1();
             Window1.Show();
             Close();
+        }
+
+        private void deleteItem_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var id = button.Tag;
+            var itemDel = AppConnect.model0db.card.Where(x => x.id == (int?)id);
+            try
+            {
+                AppConnect.model0db.card.RemoveRange(itemDel);
+                AppConnect.model0db.SaveChanges();
+                AppConnect.model0db.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+                ListCart.ItemsSource = AppConnect.model0db.card.ToList();
+            }
+            catch 
+            {
+                MessageBox.Show("Обьект не не удален");
+            }
         }
     }
 }

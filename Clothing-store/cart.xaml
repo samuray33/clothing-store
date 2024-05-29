@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clothing_store"
         mc:Ignorable="d"
-        Title="cart" Height="450" Width="800">
+        Title="cart" Height="450" Width="800" MinWidth="800" MinHeight="450" MaxWidth="800" MaxHeight="450">
     <Grid>
         <Button x:Name="back" Content="Назад" HorizontalAlignment="Left" Margin="39,9,0,0" FontSize="20px" VerticalAlignment="Top" Width="83" Height="31" Click="back_Click"/>
         <TextBlock x:Name="Prise" HorizontalAlignment="Left" Margin="39,366,0,0" TextWrapping="Wrap" Text="Цена: " FontSize="20px" VerticalAlignment="Top"/>
-        <TextBlock x:Name="FIO" HorizontalAlignment="Left" Margin="541,11,0,0" TextWrapping="Wrap"  Text="Никита Никита Никита" FontSize="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="FIO" HorizontalAlignment="Left" Margin="624,11,0,0" TextWrapping="Wrap" Foreground="#FF115BBD"  Text="Clothing store" FontSize="20" VerticalAlignment="Top"/>
 
         <ListView x:Name="ListCart" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,45,0,55">
             <ListView.ItemTemplate>
@@ -48,7 +48,7 @@
                             </TextBlock>
                         </StackPanel>
                         <ToolBarPanel Grid.Column="2"/>
-                        <Button x:Name="deleteItem" Grid.Column="2" Content="Удалить" FontSize="20px" HorizontalAlignment="Left" Margin="62,94,0,0" VerticalAlignment="Top" Width="128" Height="34"/>
+                        <Button x:Name="deleteItem" Grid.Column="2" Content="Удалить" FontSize="20px" HorizontalAlignment="Left" Margin="62,94,0,0" Tag="{Binding id}" VerticalAlignment="Top" Width="128" Height="34" Click="deleteItem_Click"/>
                         <TextBlock Grid.Column="2" HorizontalAlignment="Center" FontSize="18" Margin="0,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" Height="30">
                             <Run Text="Колличество: "/>
                             <Run Text="{Binding caunt}"/>
