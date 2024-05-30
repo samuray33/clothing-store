@@ -20,13 +20,31 @@ namespace Clothing_store
     /// </summary>
     public partial class Window1 : Window
     {
-        public Window1()
+        int userID = 1;
+        public Window1(int userid)
         {
             InitializeComponent();
             items.entity = new Entities1();
             ListView1.ItemsSource = FindMain();
             sortItems.SelectedIndex = 0;
+            //пытаюсь получить idRole, userID == idRole
+            //тест
+            userID = userid;
+            MessageBox.Show(userID.ToString());
+            Button myButton = ListView1.FindName("btnBuy") as Button;
+
+            //Visibility.Visible;
+            switch (userID) {
+                case 1:
+                    myButton.Visibility = Visibility.Hidden;
+                    break;
+                case 2:
+                    myButton.Visibility = Visibility.Visible;
+                    break;
+            }
+            
         }
+
 
         private void card_Click(object sender, RoutedEventArgs e)
         {
@@ -36,7 +54,7 @@ namespace Clothing_store
         // переход в корзину
         private void card_Click_1(object sender, RoutedEventArgs e)
         {
-            cart cart = new cart();
+            cart cart = new cart(userID);
             cart.Show();
             this.Close();
         }
@@ -69,15 +87,21 @@ namespace Clothing_store
             ListView1.ItemsSource = FindMain();
         }
 
+       
+
+
+        //фильтрация
+        private void sortItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListView1.ItemsSource = FindMain();
+        }
+
         //отправка товара в корзуну 
-        private void buy_Click(object sender, RoutedEventArgs e)
+        private void btnBuy_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
             var id = button.Tag;
             int userId = (int)App.Current.Properties["userEmail"];
-
-            ////////////////////////////////////////////////////////////////////////Попытка получить даныые caunt - это колличество товара при выборе
-            ////////////////////////////////////////////////////////////////////////string caunt = caunt.Text;
 
             try
             {
@@ -92,13 +116,6 @@ namespace Clothing_store
                 MessageBox.Show("товар отправлен в корзину");
             }
             catch (Exception ex) { MessageBox.Show("товар не отправлен в корзину"); }
-
-        }
-
-        //фильтрация
-        private void sortItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ListView1.ItemsSource = FindMain();
         }
 
     }

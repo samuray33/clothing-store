@@ -40,25 +40,71 @@ namespace Clothing_store
 
         private void Regis_Click(object sender, RoutedEventArgs e)
         {
-            try
+            // получаем данные из поле Patronymic, если оно пустое то пишем "Нет отчества"
+            var Patro = Patronymic.Text.ToString();
+            if (Patro.Length < 1)
             {
-                account personObj = new account()
-                {
-                    name = Name.Text,
-                    surname = Surname.Text,
-                    patronymic = Patronymic.Text,
-                    email = Email.Text,
-                    password = Password.Password,
-                    idGender = Gender.SelectedIndex + 1,
-                    idRole = 2,
-                };
-
-                AppConnect.model0db.account.Add(personObj);
-                AppConnect.model0db.SaveChanges();
-                MessageBox.Show("Пользователь добавлен");
-                AppFrame.mainframe.Navigate(new Page1());
+                Patro = "Нет отчества";
             }
-            catch (Exception ex) { MessageBox.Show(Gender.SelectedIndex.ToString()); }
+
+            //Проверка корректности данных при регистрации(получение данных в переменные)
+            var EM = Email.Text.ToString();
+            var PS = Password.Password.ToString();
+            var GN = Gender.SelectedIndex;
+            var NA = Name.Text.ToString();
+            var SN = Surname.Text.ToString();
+            //MessageBox.Show(EM + " " + PS + "" + GN + "" + NA + "" + SN);
+            //Проверка корректности данных при регистрации(сама проверка)
+            var cheData = 0;
+
+            if (EM.Length < 1) 
+            {
+                cheData++;
+            }
+            if (PS.Length < 1)
+            {
+                cheData++;
+            }
+            if (GN==0)
+            {
+                cheData++;
+            }
+            if (NA.Length < 1)
+            {
+                cheData++;
+            }
+            if (SN.Length < 1)
+            {
+                cheData++;
+            }
+
+            // Если все данные введены корректно то отправляем данные в бд и перенаправляем в ВХОД
+            if (cheData == 0)
+            {
+                try
+                {
+                    account personObj = new account()
+                    {
+                        name = Name.Text,
+                        surname = Surname.Text,
+                        patronymic = Patro,
+                        email = Email.Text,
+                        password = Password.Password,
+                        idGender = Gender.SelectedIndex + 1,
+                        idRole = 2,
+                    };
+
+                    AppConnect.model0db.account.Add(personObj);
+                    AppConnect.model0db.SaveChanges();
+                    MessageBox.Show("Пользователь добавлен");
+                    AppFrame.mainframe.Navigate(new Page1());
+                }
+                catch (Exception ex) { MessageBox.Show(Gender.SelectedIndex.ToString()); }
+            }
+            else 
+            {
+                MessageBox.Show("Обнаружены пустые данные"); 
+            }
         }
 
 

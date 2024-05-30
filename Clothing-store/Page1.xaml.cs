@@ -25,18 +25,20 @@ namespace Clothing_store
             InitializeComponent();
         }
 
+        //переход на фрейм регистрации
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AppFrame.mainframe.Navigate(new Page2());
         }
 
+        // проверка есть ли пользователь в бд, если есть то преход на страницу с товаром
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             var userObj = AppConnect.model0db.account.FirstOrDefault(x => x.email == Email.Text && x.password == Password.Password);
             if (userObj != null)
             {
                 App.Current.Properties["userEmail"] = userObj.id;
-                Window1 window = new Window1();
+                Window1 window = new Window1((int)userObj.idRole);
                 window.Show();
                 Application.Current.MainWindow.Close();
             }
