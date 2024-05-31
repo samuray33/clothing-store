@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -20,18 +21,33 @@ namespace Clothing_store
     /// </summary>
     public partial class cart : Window
     {
+        int userID = 1;
         // подключение к бд для вывода данных из таблицы card
-        public cart()
+        public cart(int userid)
         {
             InitializeComponent();
             items.entity = new Entities1();
             ListCart.ItemsSource = AppConnect.model0db.card.ToList();
+            
+            //общая стоимость товаров в корзине 
+            var a = AppConnect.model0db.card.ToList();
+            int sumPrice = 0;
+
+            for (int i = 0; i < a.Count; i++)
+            {
+                int gooid = (int)a[i].idMain;
+                main b = AppConnect.model0db.main.FirstOrDefault(x => x.id == gooid);
+                sumPrice += (int)b.price;
+            }
+            coast.Text = sumPrice.ToString();
+            
+            userID = userid;
         }
 
         // обратно на главную страницу
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            Window1 Window1 = new Window1();
+            Window1 Window1 = new Window1(userID);
             Window1.Show();
             Close();
         }

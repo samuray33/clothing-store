@@ -8,8 +8,11 @@
         Title="cart" Height="450" Width="800" MinWidth="800" MinHeight="450" MaxWidth="800" MaxHeight="450">
     <Grid>
         <Button x:Name="back" Content="Назад" HorizontalAlignment="Left" Margin="39,9,0,0" FontSize="20px" VerticalAlignment="Top" Width="83" Height="31" Click="back_Click"/>
-        <TextBlock x:Name="Prise" HorizontalAlignment="Left" Margin="39,366,0,0" TextWrapping="Wrap" Text="Цена: " FontSize="20px" VerticalAlignment="Top"/>
-        <TextBlock x:Name="FIO" HorizontalAlignment="Left" Margin="624,11,0,0" TextWrapping="Wrap" Foreground="#FF115BBD"  Text="Clothing store" FontSize="20" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock x:Name="Prise" HorizontalAlignment="Left" Margin="39,366,0,0" TextWrapping="Wrap" Text="Цена: " FontSize="20px" VerticalAlignment="Top"/>
+            <TextBlock x:Name="coast" HorizontalAlignment="Left" Margin="5,367,0,0" TextWrapping="Wrap" Text="0" FontSize="20px" VerticalAlignment="Top"/> 
+        </StackPanel>
+        <TextBlock x:Name="name" HorizontalAlignment="Left" Margin="624,11,0,0" TextWrapping="Wrap" Foreground="#FF115BBD"  Text="Clothing store" FontSize="20" VerticalAlignment="Top"/>
 
         <ListView x:Name="ListCart" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,45,0,55">
             <ListView.ItemTemplate>

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,51 +15,32 @@ using System.Windows.Shapes;
 namespace Clothing_store
 {
     /// <summary>
-    /// Логика взаимодействия для Window1.xaml
+    /// Логика взаимодействия для Admin.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Admin : Window
     {
-        int userID = 1;
-        public Window1(int userid)
+        public Admin()
         {
             InitializeComponent();
-            items.entity = new Entities1();
             ListView1.ItemsSource = FindMain();
             sortItems.SelectedIndex = 0;
-            //пытаюсь получить idRole, userID == idRole
-            //тест
-            userID = userid;   
         }
 
-
-        private void card_Click(object sender, RoutedEventArgs e)
+        main[] FindMain()
         {
-
-        }
-
-        // переход в корзину
-        private void card_Click_1(object sender, RoutedEventArgs e)
-        {
-            cart cart = new cart(userID);
-            cart.Show();
-            this.Close();
-        }
-
-
-
-        // функция для поиска
-        main[] FindMain() {
             List<main> mains = AppConnect.model0db.main.ToList();
 
             if (String.IsNullOrEmpty(findItems.Text) || String.IsNullOrWhiteSpace(findItems.Text))
             {
 
             }
-            else {
+            else
+            {
                 mains = mains.Where(x => x.nameItem.ToLower().Contains(findItems.Text.ToLower())).ToList();
             }
 
-            if (sortItems.SelectedIndex != 0) {
+            if (sortItems.SelectedIndex != 0)
+            {
                 mains = mains.Where(x => x.idCategor.ToString() == sortItems.SelectedIndex.ToString()).ToList();
             }
 
@@ -74,7 +54,7 @@ namespace Clothing_store
             ListView1.ItemsSource = FindMain();
         }
 
-       
+
 
 
         //фильтрация
@@ -83,27 +63,23 @@ namespace Clothing_store
             ListView1.ItemsSource = FindMain();
         }
 
-        //отправка товара в корзуну 
-        private void btnBuy_Click(object sender, RoutedEventArgs e)
+        //кнопка для удаление товара из таблицы
+        private void delete_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
             var id = button.Tag;
-            int userId = (int)App.Current.Properties["userEmail"];
-
+            var itemDel = AppConnect.model0db.main.Where(x => x.id == (int?)id);
             try
             {
-                card card = new card()
-                {
-                    idMain = (int?)id,
-                    idAccount = userId,
-                    caunt = 1,
-                };
-                AppConnect.model0db.card.Add(card);
+                AppConnect.model0db.main.RemoveRange(itemDel);
                 AppConnect.model0db.SaveChanges();
-                MessageBox.Show("товар отправлен в корзину");
+                AppConnect.model0db.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+                ListView1.ItemsSource = AppConnect.model0db.main.ToList();
             }
-            catch (Exception ex) { MessageBox.Show("товар не отправлен в корзину"); }
+            catch
+            {
+                MessageBox.Show("Обьект не не удален");
+            }
         }
-
     }
 }

@@ -35,7 +35,14 @@ namespace Clothing_store
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             var userObj = AppConnect.model0db.account.FirstOrDefault(x => x.email == Email.Text && x.password == Password.Password);
-            if (userObj != null)
+            //проверка если у пользователя 1 уровень доступа то переход на стараницу админ
+            if (userObj.idRole == 1) {
+                App.Current.Properties["userEmail"] = userObj.id;
+                Admin admin = new Admin();
+                admin.Show();
+                Application.Current.MainWindow.Close();
+            }
+            else if (userObj != null)
             {
                 App.Current.Properties["userEmail"] = userObj.id;
                 Window1 window = new Window1((int)userObj.idRole);
