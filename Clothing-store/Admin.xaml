@@ -15,7 +15,7 @@
             <ComboBoxItem Content="женская" />
             <ComboBoxItem Content="детская" />
         </ComboBox>
-        <Button x:Name="AddItem" Content="Добавить" HorizontalAlignment="Left" Margin="710,23,0,0" Background="LightGreen" VerticalAlignment="Top" Height="41" Width="68" />
+        <Button x:Name="AddItem" Content="Добавить" HorizontalAlignment="Left" Margin="710,23,0,0" Background="LightGreen" VerticalAlignment="Top" Height="41" Width="68" Click="AddItem_Click" />
         <Image Grid.Column="0" Source="{Binding CarrectImage}" Margin="0,86,0,0"/>
         <TextBlock Text="{Binding decription}" Margin="0,82,0,0">
             <Run></Run>

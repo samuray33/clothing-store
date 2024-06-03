@@ -50,7 +50,7 @@ namespace Clothing_store
             //Проверка корректности данных при регистрации(получение данных в переменные)
             var EM = Email.Text.ToString();
             var PS = Password.Password.ToString();
-            var GN = Gender.SelectedIndex;
+            var GN = Gender.SelectedIndex + 1;
             var NA = Name.Text.ToString();
             var SN = Surname.Text.ToString();
             //MessageBox.Show(EM + " " + PS + "" + GN + "" + NA + "" + SN);

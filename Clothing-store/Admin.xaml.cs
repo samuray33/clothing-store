@@ -81,5 +81,13 @@ namespace Clothing_store
                 MessageBox.Show("Обьект не не удален");
             }
         }
+
+        //переход в добавление
+        private void AddItem_Click(object sender, RoutedEventArgs e)
+        {
+            AddItem addItem = new AddItem();
+            addItem.Show();
+            Close();
+        }
     }
 }

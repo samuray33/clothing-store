@@ -52,6 +52,7 @@ namespace Clothing_store
             Close();
         }
 
+        //Удаление
         private void deleteItem_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
