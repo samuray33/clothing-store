@@ -54,9 +54,6 @@ namespace Clothing_store
             ListView1.ItemsSource = FindMain();
         }
 
-
-
-
         //фильтрация
         private void sortItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -84,8 +81,18 @@ namespace Clothing_store
 
         //переход в добавление
         private void AddItem_Click(object sender, RoutedEventArgs e)
-        {
+        { 
             AddItem addItem = new AddItem();
+            addItem.Show();
+            Close();
+        }
+
+        //Изменение (перход на страницу с добавлением и сохраняем данных)
+        private void change_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var itemSend = button.DataContext as main;
+            AddItem addItem = new AddItem(itemSend);
             addItem.Show();
             Close();
         }

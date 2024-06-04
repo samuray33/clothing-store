@@ -36,13 +36,13 @@ namespace Clothing_store
         {
             get 
             {
-                if (String.IsNullOrEmpty(Image) || String.IsNullOrWhiteSpace(Image))
+                if (String.IsNullOrEmpty(photoItem) || String.IsNullOrWhiteSpace(photoItem))
                 {
                     return "/img/1.jpg";
                 }
                 else 
                 {
-                    return "/img/" + Image;
+                    return "/img/" + photoItem + ".jpg";
                 }
             }
         }

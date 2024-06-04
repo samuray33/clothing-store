@@ -27,7 +27,7 @@
             <ComboBoxItem Content="синтетика" />
             <ComboBoxItem Content="кожа" />
         </ComboBox>
-        <Button x:Name="Additem" Content="Добавить" Background="LightGreen" HorizontalAlignment="Left" Margin="319,376,0,0" VerticalAlignment="Top" Height="31" Width="128" Click="Additem_Click"/>
+        <Button x:Name="back" Content="Назад" Background="Salmon" HorizontalAlignment="Left" Margin="173,376,0,0" VerticalAlignment="Top" Height="31" Width="128" Click="back_Click"/>
         <Label Content="Название товара" FontSize="20px" HorizontalAlignment="Left" Margin="42,80,0,0" VerticalAlignment="Top" Width="173"/>
         <Label Content="Цена" FontSize="20px" HorizontalAlignment="Left" Margin="42,164,0,0" VerticalAlignment="Top" Width="136"/>
         <Label Content="О товаре" FontSize="20px" HorizontalAlignment="Left" Margin="42,261,0,0" VerticalAlignment="Top" Width="136"/>
@@ -36,5 +36,6 @@
         <Label Content="Цвет" FontSize="20px" HorizontalAlignment="Left" Margin="513,159,0,0" VerticalAlignment="Top" Width="136"/>
         <Label Content="Фото" FontSize="20px" HorizontalAlignment="Left" Margin="352,122,0,0" VerticalAlignment="Top" Width="62"/>
         <TextBox x:Name="photoItem" HorizontalAlignment="Left" FontSize="20px" Margin="271,159,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223" Height="30"/>
+        <Button x:Name="Additem_Copy" Content="Добавить" Background="LightGreen" HorizontalAlignment="Left" Margin="453,376,0,0" VerticalAlignment="Top" Height="31" Width="128" Click="Additem_Click"/>
     </Grid>
 </Window>

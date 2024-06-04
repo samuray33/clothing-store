@@ -56,7 +56,7 @@
                                 <Run Text="{Binding material.material1}"/>
                             </TextBlock>
                         </StackPanel>
-                        <Button x:Name="change" Grid.Column="2" FontSize="20px" Content="Изменить" Background="LightYellow" HorizontalAlignment="Left" Margin="85,20,0,0" Tag="{Binding id}" VerticalAlignment="Top" Height="39" Width="105"/>
+                        <Button x:Name="change" Grid.Column="2" FontSize="20px" Content="Изменить" Background="LightYellow" HorizontalAlignment="Left" Margin="85,20,0,0" Tag="{Binding id}" VerticalAlignment="Top" Height="39" Width="105" Click="change_Click"/>
                         <Button x:Name="delete" Grid.Column="2" FontSize="20px" Content="Удалить" Background="Salmon" HorizontalAlignment="Left" Margin="85,70,0,0" Tag="{Binding id}" VerticalAlignment="Top" Height="39" Width="105" Click="delete_Click"/>
                     </Grid>
                 </DataTemplate>
