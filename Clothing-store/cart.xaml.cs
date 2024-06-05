@@ -1,8 +1,11 @@
-﻿using System;
+﻿using iTextSharp.text.pdf;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -70,5 +73,19 @@ namespace Clothing_store
                 MessageBox.Show("Обьект не не удален");
             }
         }
+
+        //функция для создании и передачи pdf кода
+        private void PDF() 
+        {
+            //попытка создать pdf файл
+            Document docPdf = new Document();
+        }
+
+        // при нажатии на оформить срабатывает PDF()
+        private void by_Click(object sender, RoutedEventArgs e)
+        {
+            //PDF();
+        }
+
     }
 }
