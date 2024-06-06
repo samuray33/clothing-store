@@ -1,9 +1,7 @@
-﻿using iTextSharp.text.pdf;
-using System;
+﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.IO;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
@@ -16,6 +14,15 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
+using System.IO;
+using System.Xml.Linq;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Paragraph = iTextSharp.text.Paragraph;
+using Aspose.BarCode.Generation;
+using Image = iTextSharp.text.Image;
+using Document = iTextSharp.text.Document;
 
 namespace Clothing_store
 {
@@ -78,14 +85,105 @@ namespace Clothing_store
         private void PDF() 
         {
             //попытка создать pdf файл
-            Document docPdf = new Document();
+            //Document docPdf = new Document();
+            // try
+            //{
+            //    PdfWriter.GetInstance(docPdf, new FileStream("..\\..\\Чек.pdf", FileMode.Create));
+
+            //    docPdf.Open();
+            //    BaseFont baseFont = BaseFont.CreateFont("C:\\Windows\\Fonts\\Arial.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+
+            //    Font font = new Font(baseFont, 12);
+            //    Font font1 = new Font(baseFont, 23, 3, BaseColor.BLACK);
+
+            //    Paragraph line = new Paragraph("--------------------------------------------------------------------", font1);
+            //    line.Alignment = Element.ALIGN_CENTER;
+            //    docPdf.Add(line);
+
+            //    Paragraph title = new Paragraph("ЧЕК", font1);
+            //    title.Alignment = Element.ALIGN_CENTER;
+            //    docPdf.Add(title);
+
+            //    docPdf.Add(line);
+                
+            //    int cnt = 0;
+            //    decimal sumW = 0;
+            //    decimal sumR = 0;
+
+            //    foreach (var item in ListCart.Items)
+            //    {
+            //        if (item is card)
+            //        {
+            //            card data = (card)item;
+
+            //            Image img = Image.GetInstance(@"S:\USERS\51-02\Хаитов Некруз Самиджонович\практика\Clothing-store\Clothing-store\img\" + data.main.photoItem);
+            //            img.ScaleAbsolute(100f, 100f);
+            //            docPdf.Add(img);
+            //            docPdf.Add(new Paragraph($"Название: {data.main.nameItem}", font));
+            //            docPdf.Add(new Paragraph($"Цена: {data.main.price}", font));
+            //            docPdf.Add(new Paragraph($"О товаре: {data.main.infoItem}", font));
+            //            docPdf.Add(new Paragraph($"Категория: {data.main.idCategor}", font));
+            //            docPdf.Add(new Paragraph($"Цвет: {data.main.idColor}", font));
+            //            docPdf.Add(new Paragraph($"Материал: {data.main.idMaterial}", font));
+            //            docPdf.Add(line);
+
+            //            cnt += data.order_quantity;
+            //            sumW += data.Toys_ToyStore.toy_wholesalePrice * data.order_quantity;
+            //            sumR += data.Toys_ToyStore.toy_retailPrice * data.order_quantity;
+            //        }
+            //    }
+
+            //    Paragraph ordN = new Paragraph($"Номер заказа: {numOrder}", font);
+            //    ordN.Alignment = Element.ALIGN_RIGHT;
+            //    docPdf.Add(ordN);
+                
+            //    Paragraph TotalQuantity = new Paragraph($"Общее количество товаров: {cnt}", font);
+            //    Paragraph TotalSumW = new Paragraph($"Оптовая сумма: {sumW}", font);
+            //    Paragraph TotalSumR = new Paragraph($"Розничная сумма: {sumR}", font);
+                
+            //    TotalQuantity.Alignment = Element.ALIGN_RIGHT;
+            //    TotalSumW.Alignment = Element.ALIGN_RIGHT;
+            //    TotalSumR.Alignment = Element.ALIGN_RIGHT;
+
+            //    docPdf.Add(TotalQuantity);
+            //    docPdf.Add(TotalSumW);
+            //    docPdf.Add(TotalSumR);
+            //}
+            //catch (DocumentException de)
+            //{
+            //    Console.Error.WriteLine(de.Message);
+            //}
+            //catch (IOException ioe)
+            //{
+            //    Console.Error.WriteLine(ioe.Message);
+            //}
+            //finally
+            //{
+            //    docPdf.Close();
+            //}
         }
 
-        // при нажатии на оформить срабатывает PDF()
-        private void by_Click(object sender, RoutedEventArgs e)
+        //QR функция
+        int a = 1;
+        private void doQR()
         {
-            //PDF();
+            BitmapImage bitmap = new BitmapImage();
+            BarcodeGenerator gen = new BarcodeGenerator(EncodeTypes.QR, "https://yandex.ru/images/search?from=tabbar&img_url=https%3A%2F%2Fcdn.nwmgroups.hu%2Fs%2Fimg%2Fi%2F2211%2F20221104bean-1997-uk-cinema-appareil.jpg&lr=2&pos=4&rpt=simage&text=%D1%84%D0%BE%D1%82%D0%BE%20%D0%BC%D0%B5%D0%BC%D0%BE%D0%B2");
+            gen.Parameters.Barcode.XDimension.Pixels = 34;
+            string dataDir = @"S:\USERS\51-02\Хаитов Некруз Самиджонович\практика\Clothing-store\Clothing-store\";
+            gen.Save(dataDir + a.ToString() + "1.png", BarCodeImageFormat.Png);
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(dataDir + a.ToString() + "1.png");
+            bitmap.EndInit();
+            QRimg.Source = bitmap;
+            a++;
         }
 
+        // при нажатии на оформить срабатывает PDF() и doQR()
+        private void by_Click_1(object sender, RoutedEventArgs e)
+        {
+            doQR();
+            PDF();
+        }
     }
 }

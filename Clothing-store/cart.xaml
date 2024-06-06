@@ -5,16 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clothing_store"
         mc:Ignorable="d"
-        Title="cart" Height="450" Width="800" MinWidth="800" MinHeight="450" MaxWidth="800" MaxHeight="450">
+        Title="cart" Height="450" Width="800" MinWidth="1000" MinHeight="450" MaxWidth="800" MaxHeight="450">
     <Grid>
         <Button x:Name="back" Content="Назад" HorizontalAlignment="Left" Margin="39,9,0,0" FontSize="20px" VerticalAlignment="Top" Width="83" Height="31" Click="back_Click"/>
+        <Image x:Name="QRimg" Margin="820,130,52,156"/>
         <StackPanel Orientation="Horizontal">
             <TextBlock x:Name="Prise" HorizontalAlignment="Left" Margin="39,366,0,0" TextWrapping="Wrap" Text="Цена: " FontSize="20px" VerticalAlignment="Top"/>
-            <TextBlock x:Name="coast" HorizontalAlignment="Left" Margin="5,367,0,0" TextWrapping="Wrap" Text="0" FontSize="20px" VerticalAlignment="Top"/> 
+            <TextBlock x:Name="coast" HorizontalAlignment="Left" Margin="5,367,0,0" TextWrapping="Wrap" Text="0" FontSize="20px" VerticalAlignment="Top"/>
         </StackPanel>
-        <TextBlock x:Name="name" HorizontalAlignment="Left" Margin="624,11,0,0" TextWrapping="Wrap" Foreground="#FF115BBD"  Text="Clothing store" FontSize="20" VerticalAlignment="Top"/>
+        <TextBlock x:Name="name" HorizontalAlignment="Left" Margin="844,11,0,0" TextWrapping="Wrap" Foreground="#FF115BBD"  Text="Clothing store" FontSize="20" VerticalAlignment="Top"/>
 
-        <ListView x:Name="ListCart" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,45,0,55">
+        <ListView x:Name="ListCart" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="26,50,223,50">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -57,6 +58,6 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button x:Name="by" Content="Оформить" HorizontalAlignment="Left" Margin="642,368,0,0" FontSize="20px" VerticalAlignment="Top" Height="32" Width="107"/>
+        <Button x:Name="by" Content="Оформить" HorizontalAlignment="Left" Margin="844,363,0,0" FontSize="20px" VerticalAlignment="Top" Height="32" Width="107" Click="by_Click_1"/>
     </Grid>
 </Window>
